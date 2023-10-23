@@ -1,14 +1,12 @@
-class Config:
-    SECRET_KEY = 'B!1w8NAt1T^%kvhUI*S^'
-    WTF_CSRF_CHECK_DEFAULT = False
+from decouple import config
 
 
-class DevelopmentConfig(Config):
+class config:
+    SECRET_KEY = config('SECRET_KEY')
+
+
+class DevelopmentConfig(config):
     DEBUG = True
-    MYSQL_HOST = 'localhost' #loaclhost
-    MYSQL_USER = 'root'#root
-    MYSQL_PASSWORD =''
-    MYSQL_DB = 'flask_login'
 
 
 config = {
