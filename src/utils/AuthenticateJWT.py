@@ -9,7 +9,7 @@ def authentication_jwt(user):
         'public_id': user.id,
         'fullname': user.first_name + " "+ user.last_name,
         'initial_time': convert_time(),
-        'expiration': convert_time(minute=30)
+        'exp': convert_time(minute=30)
     }
 
     return jwt.encode(payload, config('JWT_KEY'), algorithm='HS256')

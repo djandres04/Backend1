@@ -3,6 +3,8 @@ from flask_cors import CORS
 
 from src.models import ModelUser
 from src.utils.AuthenticateJWT import authentication_jwt
+from src.utils.token import token_required
+from src.utils import  JsonMessage
 
 main = Blueprint('home_blueprint', __name__)
 CORS(main)
@@ -23,7 +25,7 @@ def login():
             response.headers['Content-Type'] = 'application/json'
             return response
         else:
-            data = {'access_token': ''}
+            data = {'access_token': '','message':'bad credentials'}
             response = jsonify(data)
             response.headers['Content-Type'] = 'application/json'
             return response

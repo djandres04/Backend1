@@ -3,14 +3,11 @@ from decouple import config
 
 
 def token_required(headers):
-    authorization = headers['Authorization']
-    encoded_token = authorization.split(" ")[1]
-    print(encoded_token)
     try:
-        if 'Authorization' in headers.keys():
-            authorization = headers['Authorization']
-            encoded_token = authorization.split(" ")[1]
-
+        if 'Token' in headers.keys():
+            authorization = headers['Token']
+            #encoded_token = authorization.split(" ")[1]
+            encoded_token = authorization
             try:
                 payload = jwt.decode(encoded_token, config('JWT_KEY'), algorithms=['HS256'])
                 return True, payload
@@ -20,5 +17,7 @@ def token_required(headers):
                 return False, str(ex)
             except Exception as ex:
                 return False, str(ex)
+        else:
+            return False, "token doesn't exist"
     except Exception as ex:
         return False, str(ex)

@@ -7,6 +7,7 @@ from config import config
 # routes
 from routes import HomeRoute
 from routes import DevicesRoute
+from src.routes import DoorRoute, LightRoute
 
 app = Flask(__name__)
 CORS(app, resources={r"*": {"origins": "*"}})
@@ -29,5 +30,7 @@ if __name__ == '__main__':
 
     app.register_blueprint(HomeRoute.main, url_prefix='/')
     app.register_blueprint(DevicesRoute.main, url_prefix='/devices')
+    app.register_blueprint(DoorRoute.main, url_prefix='/door')
+    app.register_blueprint(LightRoute.main, url_prefix='/light')
 
-    app.run(host="0.0.0.0", port=5050)
+    app.run(host="0.0.0.0", port=5050, debug=True)
