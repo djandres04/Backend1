@@ -7,7 +7,7 @@ from config import config
 # routes
 from routes import HomeRoute
 from routes import DevicesRoute
-from src.routes import DoorRoute, LightRoute
+from routes import DoorRoute, LightRoute
 
 app = Flask(__name__)
 CORS(app, resources={r"*": {"origins": "*"}})

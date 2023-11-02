@@ -1,7 +1,7 @@
 import jwt
 
 from decouple import config
-from src.utils.ConverterTime import convert_time
+from utils.ConverterTime import convert_time
 
 
 def authentication_jwt(user):

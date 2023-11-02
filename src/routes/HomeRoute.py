@@ -1,10 +1,10 @@
 from flask import Blueprint, request, jsonify
 from flask_cors import CORS
 
-from src.models import ModelUser
-from src.utils.AuthenticateJWT import authentication_jwt
-from src.utils.token import token_required
-from src.utils import  JsonMessage
+from models import ModelUser
+from utils.AuthenticateJWT import authentication_jwt
+from utils.token import token_required
+from utils import  JsonMessage
 
 main = Blueprint('home_blueprint', __name__)
 CORS(main)

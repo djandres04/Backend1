@@ -4,8 +4,8 @@ import requests
 
 import json
 
-from src.utils.token import token_required
-from src.utils import JsonMessage
+from utils.token import token_required
+from utils import JsonMessage
 
 from decouple import config
 
